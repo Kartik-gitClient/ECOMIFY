@@ -3,7 +3,8 @@ from flask_cors import CORS  # Import CORS
 import mysql.connector
 
 app = Flask(__name__)
-CORS(app, origins="http://localhost:3000")
+CORS(app, origins=["http://localhost:3000", "https://my-react-app.vercel.app"])
+
 
 def get_db_connection():
     """Helper function to get a database connection."""
@@ -378,7 +379,6 @@ def update_product(product_id):
         finally:
             cursor.close()
             conn.close()
-
 
         
 if __name__ == '__main__':
